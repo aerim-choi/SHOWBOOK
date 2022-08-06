@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        android:id="@+id/toolbarLayout"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_weight="0.7"
+            android:text="상품 등록"
+            android:textColor="@color/fontcolor"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/backBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:background="@color/white"
+            android:text="닫기"
+            android:textColor="@color/sspurple" />
+    </LinearLayout>
+    <View
+        android:id="@+id/toolbarUnderLineView"
+        android:background="@color/gray_cc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarLayout"
+        android:layout_width="0dp"
+        android:layout_height="1dp"/>
+
+    <EditText
+        android:id="@+id/titleEditText"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_round_ssgray2_20"
+        android:hint="제목"
+        android:includeFontPadding="true"
+        android:paddingStart="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarUnderLineView" />
+
+    <EditText
+        android:id="@+id/priceEditText"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_round_ssgray2_20"
+        android:hint="가격"
+        android:includeFontPadding="true"
+        android:inputType="numberDecimal"
+        android:paddingStart="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleEditText" />
+
+    <EditText
+        android:id="@+id/detailEditTextView"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_round_ssgray2_20"
+        android:hint="물품 설명하기"
+        android:includeFontPadding="true"
+        android:paddingStart="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/priceEditText" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/imageAddButton"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:background="@drawable/button_round_ssgray2_20"
+        android:text="이미지 등록"
+        android:textColor="#7C7C7C"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toEndOf="@+id/bookBuyDayRatingBar"
+        app:layout_constraintTop_toTopOf="@+id/bookcontionRatingBar"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/bookCondition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="책 상태"
+        android:textColor="@color/fontcolor"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detailEditTextView" />
+
+    <RatingBar
+        android:id="@+id/bookcontionRatingBar"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:numStars="3"
+        android:rating="3.0"
+        android:scaleX=".8"
+        android:scaleY=".8"
+        android:stepSize="1.0"
+        app:layout_constraintStart_toEndOf="@+id/bookBuyDay"
+        app:layout_constraintTop_toBottomOf="@+id/detailEditTextView" />
+
+    <TextView
+        android:id="@+id/bookBuyDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="구매시기"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bookCondition"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/fontcolor"
+        />
+
+    <RatingBar
+        android:stepSize="1.0"
+        android:id="@+id/bookBuyDayRatingBar"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginStart="15dp"
+        android:numStars="3"
+        android:rating="3.0"
+        android:scaleX=".8"
+        android:scaleY=".8"
+        app:layout_constraintStart_toEndOf="@+id/bookBuyDay"
+        app:layout_constraintTop_toBottomOf="@+id/bookcontionRatingBar" />
+
+    <CheckBox
+        android:id="@+id/bookWriteCon"
+        android:layout_width="110dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:text="필기여부"
+        android:textColor="@color/fontcolor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookBuyDayRatingBar" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/submitButton"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/sspurple"
+        android:text="등록하기"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookWriteCon" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visiblity="visible" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
