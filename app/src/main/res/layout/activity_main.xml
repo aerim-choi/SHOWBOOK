@@ -10,21 +10,27 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
         android:layout_width="0dp"
         android:layout_height="0dp"/>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation_menu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:itemTextColor="@color/black"
-        android:layout_width="0dp"
+    <nl.joery.animatedbottombar.AnimatedBottomBar
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:itemIconTint="@drawable/selector_menu_color"
-        app:itemRippleColor="@null"
-        />
-
+        android:background="#FFF"
+        app:abb_indicatorAppearance="round"
+        app:abb_indicatorHeight="4dp"
+        app:abb_indicatorMargin="16dp"
+        app:abb_selectedIndex="1"
+        app:abb_selectedTabType="text"
+        app:abb_iconSize="45dp"
+        app:abb_tabColor="@color/sspurple"
+        app:abb_tabColorSelected="@color/sspurple"
+        app:abb_indicatorColor="@color/sspurple"
+        app:abb_tabs="@menu/bottom_navigation_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragmentContainer" />
 </androidx.constraintlayout.widget.ConstraintLayout>

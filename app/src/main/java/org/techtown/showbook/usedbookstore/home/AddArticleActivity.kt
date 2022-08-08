@@ -3,6 +3,7 @@ package org.techtown.showbook.usedbookstore.home
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
+import android.content.pm.Checksum
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
@@ -40,132 +41,194 @@ class AddArticleActivity:AppCompatActivity() {
         setContentView(R.layout.activity_add_article)
 
         findViewById<Button>(R.id.imageAddButton).setOnClickListener {
-            when{
+            when {
                 ContextCompat.checkSelfPermission(
                     this,
                     android.Manifest.permission.READ_EXTERNAL_STORAGE
-                ) == PackageManager.PERMISSION_GRANTED->{
+                ) == PackageManager.PERMISSION_GRANTED -> {
                     startContentProvider()
                 }
-                shouldShowRequestPermissionRationale(android.Manifest.permission.READ_EXTERNAL_STORAGE) ->{
+                shouldShowRequestPermissionRationale(android.Manifest.permission.READ_EXTERNAL_STORAGE) -> {
                     showPermissionContextPopup()
                 }
-                else ->{
-                    requestPermissions(arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),1010)
-                }
-            }
-
-        }
-        //아이템 등록
-        findViewById<Button>(R.id.submitButton).setOnClickListener {
-            val title=findViewById<EditText>(R.id.titleEditText).text.toString()
-            val price=findViewById<EditText>(R.id.priceEditText).text.toString()
-            val sellerId = auth.currentUser?.uid.orEmpty()
-            showProgress()
-            //중간에 이미지가 있으면 업로드 과정을 추가
-            if(selectedUri !=null){
-                val photoUri = selectedUri ?: return@setOnClickListener
-                uploadPhoto(photoUri,
-                    successHandler = { uri ->
-                        uploadArticle(sellerId,title,price,uri)
-
-                    },
-                    errorHandler = {
-                        Toast.makeText(this,"사진 업로드에 실패했습니다.",Toast.LENGTH_SHORT).show()
-                        hideProgress()
-                    }
+                else -> {
+                    requestPermissions(
+                        arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
+                        1010
                     )
-            }else{
-                    uploadArticle(sellerId,title,price,"")
+                }
+
             }
+            //아이템 등록
+            findViewById<Button>(R.id.submitButton).setOnClickListener {
+                val title = findViewById<EditText>(R.id.titleEditText).text.toString()
+                val price = findViewById<EditText>(R.id.priceEditText).text.toString()
+                val sellerId = auth.currentUser?.uid.orEmpty()
+                val sellDescription =
+                    findViewById<EditText>(R.id.detailEditTextView).text.toString()
+                val bookCondition =
+                    findViewById<RatingBar>(R.id.bookcontionRatingBar).rating.toString()
+                val buyDay = findViewById<RatingBar>(R.id.writeCondition).rating.toString()
+                val writeCondition =
+                    findViewById<CheckBox>(R.id.writeCondition).isChecked.toString()
 
-        }
 
-    }
-    private fun uploadPhoto(uri:Uri, successHandler:(String)->Unit, errorHandler:()->Unit){
-        val fileName = " ${System.currentTimeMillis()}.png"
-        storage.reference.child("article/photo").child(fileName)
-            .putFile(uri)
-            .addOnCompleteListener{
-                if(it.isSuccessful){ //업로드 완료
-                    storage.reference.child("article/photo").child(fileName)
-                        .downloadUrl.addOnSuccessListener { uri->
-                            successHandler(uri.toString())
-                        }.addOnFailureListener {
-                            errorHandler()
+                showProgress()
+                //중간에 이미지가 있으면 업로드 과정을 추가
+                if (selectedUri != null) {
+                    val photoUri = selectedUri ?: return@setOnClickListener
+                    uploadPhoto(photoUri,
+                        successHandler = { uri ->
+                            //TODO book,writeCondition수정필요
+                            uploadArticle(
+                                sellerId,
+                                title,
+                                price,
+                                uri,
+                                sellDescription,
+                                bookCondition,
+                                buyDay,
+                                writeCondition
+                            )
+
+                        },
+                        errorHandler = {
+                            Toast.makeText(this, "사진 업로드에 실패했습니다.", Toast.LENGTH_SHORT).show()
+                            hideProgress()
                         }
-                }else{
-                    errorHandler()
+                    )
+                } else {//TODO book,writeCondition수정필요
+                    uploadArticle(
+                        sellerId,
+                        title,
+                        price,
+                        "",
+                        sellDescription,
+                        bookCondition,
+                        buyDay,
+                        writeCondition
+                    )
                 }
-            }
-    }
-    private fun uploadArticle(sellerId:String,title:String,price:String,imageUrl:String){
-        val model = ArticleModel(sellerId,title,System.currentTimeMillis(),"$price 원",imageUrl)
-        articleDB.push().setValue(model)
-        hideProgress()
-        finish()
-    }
-    private fun showProgress(){
-        findViewById<ProgressBar>(R.id.progressBar).isVisible=true
-    }
-    private fun hideProgress(){
-        findViewById<ProgressBar>(R.id.progressBar).isVisible=false
-    }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-
-        when(requestCode){
-            1010->
-                if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                    startContentProvider()
-                }else{
-                    Toast.makeText(this, "권한을 거부하셨습니다.",Toast.LENGTH_SHORT).show()
-                }
-        }
-    }
-    private fun startContentProvider(){
-        val intent = Intent(Intent.ACTION_GET_CONTENT)
-        intent.type = "image/*"
-        startActivityForResult(intent,2020)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if(resultCode != Activity.RESULT_OK){
-            return
-        }
-
-        when(requestCode){
-            2020->{
-                val uri = data?.data
-                if(uri !=null){
-                    findViewById<ImageView>(R.id.photoImageView).setImageURI(uri)
-                    selectedUri = uri
-                }else{
-                    Toast.makeText(this,"사진을 가져오지 못했습니다.",Toast.LENGTH_LONG).show()
-                }
-            }else->{
-                Toast.makeText(this,"사진을 가져오지 못했습니다.",Toast.LENGTH_LONG).show()
             }
 
         }
     }
-    @RequiresApi(Build.VERSION_CODES.M)
-    private fun showPermissionContextPopup() {
-        AlertDialog.Builder(this)
-            .setTitle("권한이 필요합니다.")
-            .setMessage("사진을 가져오기 위해 필요합니다.")
-            .setPositiveButton("동의") { _, _ ->
-                requestPermissions(arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), 1010)
+        private fun uploadPhoto(
+            uri: Uri,
+            successHandler: (String) -> Unit,
+            errorHandler: () -> Unit
+        ) {
+            val fileName = " ${System.currentTimeMillis()}.png"
+            storage.reference.child("article/photo").child(fileName)
+                .putFile(uri)
+                .addOnCompleteListener {
+                    if (it.isSuccessful) { //업로드 완료
+                        storage.reference.child("article/photo").child(fileName)
+                            .downloadUrl.addOnSuccessListener { uri ->
+                                successHandler(uri.toString())
+                            }.addOnFailureListener {
+                                errorHandler()
+                            }
+                    } else {
+                        errorHandler()
+                    }
+                }
+        }
+
+        private fun uploadArticle(
+            sellerId: String,
+            title: String,
+            price: String,
+            imageUrl: String,
+            sellDescription: String,
+            bookCondition: String,
+            buyDay: String,
+            bookWrite: String
+        ) {
+            val model = ArticleModel(
+                sellerId,
+                title,
+                System.currentTimeMillis(),
+                "$price 원",
+                imageUrl,
+                sellDescription,
+                bookCondition,
+                buyDay,
+                bookWrite
+            )
+            articleDB.push().setValue(model)
+            hideProgress()
+            finish()
+        }
+
+        private fun showProgress() {
+            findViewById<ProgressBar>(R.id.progressBar).isVisible = true
+        }
+
+        private fun hideProgress() {
+            findViewById<ProgressBar>(R.id.progressBar).isVisible = false
+        }
+
+        override fun onRequestPermissionsResult(
+            requestCode: Int,
+            permissions: Array<out String>,
+            grantResults: IntArray
+        ) {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+            when (requestCode) {
+                1010 ->
+                    if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                        startContentProvider()
+                    } else {
+                        Toast.makeText(this, "권한을 거부하셨습니다.", Toast.LENGTH_SHORT).show()
+                    }
             }
-            .create()
-            .show()
+        }
+
+        private fun startContentProvider() {
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.type = "image/*"
+            startActivityForResult(intent, 2020)
+        }
+
+        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+            super.onActivityResult(requestCode, resultCode, data)
+            if (resultCode != Activity.RESULT_OK) {
+                return
+            }
+
+            when (requestCode) {
+                2020 -> {
+                    val uri = data?.data
+                    if (uri != null) {
+                        findViewById<ImageView>(R.id.imageAddButton).setImageURI(uri)
+                        selectedUri = uri
+                    } else {
+                        Toast.makeText(this, "사진을 가져오지 못했습니다.", Toast.LENGTH_LONG).show()
+                    }
+                }
+                else -> {
+                    Toast.makeText(this, "사진을 가져오지 못했습니다.", Toast.LENGTH_LONG).show()
+                }
+
+            }
+        }
+
+        @RequiresApi(Build.VERSION_CODES.M)
+        private fun showPermissionContextPopup() {
+            AlertDialog.Builder(this)
+                .setTitle("권한이 필요합니다.")
+                .setMessage("사진을 가져오기 위해 필요합니다.")
+                .setPositiveButton("동의") { _, _ ->
+                    requestPermissions(
+                        arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
+                        1010
+                    )
+                }
+                .create()
+                .show()
+        }
     }
 
-
-}

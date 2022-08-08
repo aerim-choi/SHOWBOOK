@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="제목, 저자, 강의명, 교수님 검색"
+        android:hint="제목, 저자 검색"
         android:inputType="text"
         android:lines="1"
         android:textColorHint="@color/white"

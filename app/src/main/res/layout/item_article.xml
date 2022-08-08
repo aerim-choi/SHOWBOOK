@@ -38,7 +38,7 @@
         android:layout_marginTop="6dp"
         android:textStyle="bold"
         android:textSize="15sp"
-        android:textColor="@color/black"
+        android:textColor="@color/fontcolor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/dateTextView"
         app:layout_constraintTop_toBottomOf="@id/dateTextView"
@@ -50,25 +50,39 @@
         app:layout_constraintTop_toBottomOf="@id/titleTextView"
         android:textStyle="bold"
         android:textSize="15sp"
-        android:textColor="@color/black"
+        android:textColor="@color/fontcolor"
         android:layout_marginTop="6dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         tools:text="15000원"/>
 
-    <RatingBar
-        android:id="@+id/bookCondition"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:numStars="3"
-        android:rating="3"
-        android:scaleX=".8"
-        android:scaleY=".8"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/thumbnailImageView"
-        app:layout_constraintTop_toBottomOf="@id/priceTextView" />
+ <TextView
+     android:id="@+id/bookCondition"
+     android:layout_width="0dp"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="6dp"
+     android:includeFontPadding="true"
+     android:textColor="@color/fontcolor"
+     android:textSize="15sp"
 
-    <View
+     app:layout_constraintStart_toStartOf="@id/titleTextView"
+     app:layout_constraintTop_toBottomOf="@id/priceTextView"
+     tools:text="책 상태 : 상" />
+ <TextView
+     android:id="@+id/writeCondition"
+     android:layout_width="0dp"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="6dp"
+     android:includeFontPadding="true"
+     android:textColor="@color/fontcolor"
+     android:textSize="15sp"
+
+     android:layout_marginStart="3dp"
+     app:layout_constraintStart_toEndOf="@id/bookCondition"
+     app:layout_constraintTop_toBottomOf="@id/priceTextView"
+     tools:text="| 필기여부 : Y" />
+
+ <View
         android:background="@color/gray_ec"
         android:layout_width="0dp"
         android:layout_height="1dp"

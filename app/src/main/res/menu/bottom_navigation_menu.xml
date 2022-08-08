@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/home"
-        android:icon="@drawable/ic_baseline_home_24"
+        android:icon="@drawable/bottom_home"
         android:title="홈"
+
         />
     <item android:id="@+id/evaluation"
-        android:icon="@drawable/ic_baseline_chat_24"
+        android:icon="@drawable/bottom_evaluation"
         android:title="평가"
         />
     <item android:id="@+id/search"
-        android:icon="@drawable/ic_baseline_person_pin_24"
-        android:title="검색"/>
+        android:icon="@drawable/bottom_search"
+        android:title="검색"
+        />
 
     <item android:id="@+id/usedbookstore"
-        android:icon="@drawable/ic_baseline_person_pin_24"
+        android:icon="@drawable/bottom_shop"
         android:title="장터"/>
     <item android:id="@+id/myPage"
-        android:icon="@drawable/ic_baseline_person_pin_24"
+        android:icon="@drawable/bottom_mypage"
         android:title="MY"/>
 </menu>

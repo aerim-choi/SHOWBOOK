@@ -60,4 +60,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-database-ktx' //database
     implementation 'com.google.firebase:firebase-auth-ktx' //권한
     implementation 'com.google.firebase:firebase-storage-ktx' //storage
+    implementation 'nl.joery.animatedbottombar:library:1.1.0'
 }

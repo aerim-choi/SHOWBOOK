@@ -25,6 +25,8 @@ class ArticleAdapter(val onItemClicked: (ArticleModel)->Unit) : ListAdapter<Arti
             binding.titleTextView.text = articleModel.title
             binding.dateTextView.text = format.format(date).toString()
             binding.priceTextView.text = articleModel.price
+            binding.bookCondition.text = "책상태: ${articleModel.bookCondition}"
+            binding.writeCondition.text ="|필기여부: ${articleModel.writeCondition}"
 
             if(articleModel.imageUrl.isNotEmpty()){
                 Glide.with(binding.thumbnailImageView)

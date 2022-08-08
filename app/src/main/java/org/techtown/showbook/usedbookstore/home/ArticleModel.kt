@@ -7,11 +7,10 @@ data class ArticleModel(
     val createdAt : Long,
     val price : String,
     val imageUrl : String,
-    val description:String,
-    val bookCondition:Int,
-    val buyDay:Int,
-    val writeCondition:Int
-
+    val selldescription:String,
+    val bookCondition:String,
+    val buyDay:String,
+    val writeCondition:String
 ){
-    constructor():this("","",0,"","","",0,0,0)
+    constructor():this("","",0,"","","","","","")
 }
