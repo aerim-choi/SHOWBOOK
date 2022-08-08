@@ -10,6 +10,7 @@ import nl.joery.animatedbottombar.AnimatedBottomBar
 import org.techtown.showbook.usedbookstore.home.UsedBookHomeFragment
 import org.techtown.showbook.bookinfo.BookSearchFragment
 import org.techtown.showbook.home.HomeFragment
+import org.techtown.showbook.lectureinfo.LectureFragment
 import org.techtown.showbook.mypage.MyPageFragment
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val homeFragment=HomeFragment()
+        val lectureFragment=LectureFragment()
         val bookSearchFragment = BookSearchFragment()
         val usedBookHomeFragment = UsedBookHomeFragment()
         val myPageFragment=MyPageFragment()
@@ -38,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d("bottom_bar", "Selected index: $newIndex, title: ${newTab.title}")
                 when(newIndex){
                     0->replaceFragment(homeFragment)
-                    1->replaceFragment(bookSearchFragment)
+                    1->replaceFragment(lectureFragment)
                     2->replaceFragment(bookSearchFragment)
                     3->replaceFragment(usedBookHomeFragment)
                     4->replaceFragment(myPageFragment)
