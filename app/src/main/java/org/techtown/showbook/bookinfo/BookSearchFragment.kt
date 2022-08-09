@@ -76,7 +76,7 @@ class BookSearchFragment : Fragment(R.layout.fragment_bookinfo_main) {
 
     }
 
-    private fun search(keyword: String) {
+    public fun search(keyword: String) {
         bookService.getBooksByName(getString(R.string.interParkAPIKey), keyword)
             .enqueue(object : Callback<SearchBookDto> {
 

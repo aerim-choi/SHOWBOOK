@@ -45,7 +45,7 @@ class BookAdapter(private val itemClickedListener:(Book) -> Unit):ListAdapter<Bo
             }
 
             override fun areContentsTheSame(oldItem: Book, newItem: Book): Boolean {
-                return oldItem.id == newItem.id
+                return oldItem.title== newItem.title
             }
 
         }

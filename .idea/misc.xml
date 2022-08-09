@@ -6,10 +6,17 @@
         <entry key="app/src/main/res/drawable/button_round_ssgray20.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/button_round_ssgray2_20.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/button_round_sspurple20.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_add_article.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1569046601111586" />
+        <entry key="app/src/main/res/layout/activity_mybook.xml" value="0.15604959384352288" />
         <entry key="app/src/main/res/layout/activity_usedbookdetail.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_bookinfo_main.xml" value="0.15818725951261223" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.15818725951261223" />
         <entry key="app/src/main/res/layout/fragment_lecture_info_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_mapage.xml" value="0.19752030782385635" />
+        <entry key="app/src/main/res/layout/fragment_mypage.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_usedbookstorehome.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_article.xml" value="0.1569046601111586" />
         <entry key="app/src/main/res/layout/item_book.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_history.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_lecture.xml" value="0.165" />

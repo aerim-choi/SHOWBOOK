@@ -13,7 +13,7 @@ import org.techtown.showbook.home.HomeFragment
 import org.techtown.showbook.lectureinfo.LectureFragment
 import org.techtown.showbook.mypage.MyPageFragment
 
-class MainActivity : AppCompatActivity() {
+public class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    private fun replaceFragment(fragment: Fragment) {
+    public fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .apply {
                 replace(R.id.fragmentContainer, fragment)

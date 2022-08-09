@@ -6,12 +6,12 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Book (
-    @SerializedName("itemId") val id: Long,
-    @SerializedName("title") val title: String,
-    @SerializedName("description")val description:String,
-    @SerializedName("author") val author:String,
-    @SerializedName("priceSales") val price:String,
-    @SerializedName("publisher") val publisher:String,
-    @SerializedName("coverSmallUrl")val coverSmallUrl:String
+    @SerializedName("itemId") var id: Long,
+    @SerializedName("title") var title: String,
+    @SerializedName("description")var description:String,
+    @SerializedName("author") var author:String,
+    @SerializedName("priceSales") var price:String,
+    @SerializedName("publisher") var publisher:String,
+    @SerializedName("coverSmallUrl")var coverSmallUrl:String
 
     ): Parcelable

@@ -3,7 +3,6 @@ package org.techtown.showbook.usedbookstore.home
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
-import android.content.pm.Checksum
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
@@ -39,8 +38,10 @@ class AddArticleActivity:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_article)
-
-        findViewById<Button>(R.id.imageAddButton).setOnClickListener {
+        findViewById<Button>(R.id.backBtn).setOnClickListener {
+            finish()
+        }
+        findViewById<Button>(R.id.imageAddBtn).setOnClickListener {
             when {
                 ContextCompat.checkSelfPermission(
                     this,
@@ -203,7 +204,7 @@ class AddArticleActivity:AppCompatActivity() {
                 2020 -> {
                     val uri = data?.data
                     if (uri != null) {
-                        findViewById<ImageView>(R.id.imageAddButton).setImageURI(uri)
+                        findViewById<ImageView>(R.id.imageAddBtn).setImageURI(uri)
                         selectedUri = uri
                     } else {
                         Toast.makeText(this, "사진을 가져오지 못했습니다.", Toast.LENGTH_LONG).show()

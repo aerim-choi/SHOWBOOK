@@ -26,7 +26,7 @@
         </activity>
         <activity android:name=".bookinfo.BookReviewActivity"/>
         <activity android:name=".usedbookstore.home.AddArticleActivity"/>
-
+        <activity android:name=".bookinfo.MyBookActivity"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
