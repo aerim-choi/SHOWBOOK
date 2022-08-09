@@ -21,6 +21,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
 import org.techtown.showbook.R
 import org.techtown.showbook.usedbookstore.DBKey.Companion.DB_ARTICLES
+import java.util.concurrent.locks.Condition
 
 class AddArticleActivity:AppCompatActivity() {
     private var selectedUri: Uri? = null
@@ -41,7 +42,7 @@ class AddArticleActivity:AppCompatActivity() {
         findViewById<Button>(R.id.backBtn).setOnClickListener {
             finish()
         }
-        findViewById<Button>(R.id.imageAddBtn).setOnClickListener {
+        findViewById<Button>(R.id.imageAddButton).setOnClickListener {
             when {
                 ContextCompat.checkSelfPermission(
                     this,
@@ -67,11 +68,10 @@ class AddArticleActivity:AppCompatActivity() {
                 val sellerId = auth.currentUser?.uid.orEmpty()
                 val sellDescription =
                     findViewById<EditText>(R.id.detailEditTextView).text.toString()
-                val bookCondition =
-                    findViewById<RatingBar>(R.id.bookcontionRatingBar).rating.toString()
-                val buyDay = findViewById<RatingBar>(R.id.writeCondition).rating.toString()
+                val bookCondition = findViewById<RatingBar>(R.id.bookcontionRatingBar).rating.toString()
+                val buyDay = findViewById<RatingBar>(R.id.bookBuyDayRatingBar).rating.toString()
                 val writeCondition =
-                    findViewById<CheckBox>(R.id.writeCondition).isChecked.toString()
+                    findViewById<CheckBox>(R.id.bookWriteCon).isChecked.toString()
 
 
                 showProgress()
@@ -87,9 +87,9 @@ class AddArticleActivity:AppCompatActivity() {
                                 price,
                                 uri,
                                 sellDescription,
-                                bookCondition,
+                                getBookCon(bookCondition) ,
                                 buyDay,
-                                writeCondition
+                                getWriteCon(writeCondition)
                             )
 
                         },
@@ -105,9 +105,9 @@ class AddArticleActivity:AppCompatActivity() {
                         price,
                         "",
                         sellDescription,
-                        bookCondition,
+                        getBookCon(bookCondition),
                         buyDay,
-                        writeCondition
+                        getWriteCon(writeCondition)
                     )
                 }
 
@@ -115,6 +115,20 @@ class AddArticleActivity:AppCompatActivity() {
 
         }
     }
+
+        private fun getBookCon(bookCondition: String): String {
+            return when(bookCondition){
+                "1.0"->"하"
+                "2.0"->"증"
+                else -> "상"
+            }
+        }
+        private fun getWriteCon(writeCondition:String):String{
+            return when(writeCondition){
+                "true"->"Y"
+                else -> {"N"}
+            }
+        }
         private fun uploadPhoto(
             uri: Uri,
             successHandler: (String) -> Unit,
@@ -204,7 +218,7 @@ class AddArticleActivity:AppCompatActivity() {
                 2020 -> {
                     val uri = data?.data
                     if (uri != null) {
-                        findViewById<ImageView>(R.id.imageAddBtn).setImageURI(uri)
+                        findViewById<ImageView>(R.id.photoImageView).setImageURI(uri)
                         selectedUri = uri
                     } else {
                         Toast.makeText(this, "사진을 가져오지 못했습니다.", Toast.LENGTH_LONG).show()
