@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/loginInformation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="24dp"
+                    android:paddingTop="50dp"
+                    android:text="로그인 정보"
+                    android:textColor="@color/fontcolor"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/emailArea"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/button_round_sspurple20"
+                    android:ems="10"
+                    android:hint="아이디"
+                    android:includeFontPadding="true"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="20dp"
+                    android:textColorHint="#FFFFFF"
+                    android:textSize="14sp"
+
+                    />
+
+                <EditText
+                    android:id="@+id/passwordArea1"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_gravity="top"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/button_round_lightgray"
+                    android:ems="10"
+                    android:foregroundGravity="top"
+                    android:hint="비밀번호"
+                    android:inputType="textPassword"
+                    android:paddingStart="20dp"
+                    android:textColor="@color/fontcolor"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/passwordArea2"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_gravity="top"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/button_round_lightgray"
+                    android:ems="10"
+                    android:foregroundGravity="top"
+                    android:hint="비밀번호 확인"
+                    android:inputType="textPassword"
+                    android:paddingStart="20dp"
+                    android:textColor="@color/fontcolor"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/schoolInformation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="24dp"
+                        android:paddingTop="40dp"
+                        android:text="재학 정보"
+                        android:textColor="@color/fontcolor"
+                        android:textSize="12sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/inputSchoolEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="44dp"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/button_round_lightgray"
+                            android:ems="10"
+                            android:hint="학교 웹메일 주소"
+                            android:includeFontPadding="true"
+                            android:inputType="textEmailAddress"
+                            android:paddingStart="20dp"
+
+                            android:textColor="@color/fontcolor"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/certificationBtn"
+                            android:layout_width="48dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginRight="20dp"
+                            android:background="@drawable/button_password"
+                            android:gravity="center"
+                            android:text="인증"
+                            android:textAlignment="gravity"
+                            android:textColor="@color/white" />
+
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/inputName"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_gravity="top"
+                        android:layout_margin="10dp"
+                        android:layout_marginTop="50dp"
+                        android:background="@drawable/button_round_lightgray"
+                        android:ems="10"
+                        android:foregroundGravity="top"
+                        android:hint="이름"
+                        android:inputType="textPassword"
+                        android:paddingStart="20dp"
+                        android:textColor="@color/fontcolor"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/inputMajor"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_gravity="top"
+                        android:layout_margin="10dp"
+                        android:layout_marginTop="50dp"
+                        android:background="@drawable/button_round_lightgray"
+                        android:ems="10"
+                        android:foregroundGravity="top"
+                        android:hint="학과"
+                        android:inputType="textPassword"
+                        android:paddingStart="20dp"
+                        android:textColor="@color/fontcolor"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/loginInformation2"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:paddingStart="24dp"
+                    android:paddingTop="40dp"
+                    android:textColor="@color/fontcolor"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="12dp"
+                    android:background="@drawable/button_round_lightgray"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/checkBox1"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:checked="false"
+                        android:paddingStart="5dp"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:text="선택 포함 전체 약관 동의"
+                        android:textColor="@color/fontcolor"
+                        android:textSize="12sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox5"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:checked="false"
+                        android:text="이용약관 동의(필수)"
+                        android:textColor="@color/fontcolor"
+                        android:textSize="12sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox9"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:checked="false"
+                        android:text="이벤트, 혜택알림 수신 동의"
+                        android:textColor="@color/fontcolor"
+                        android:textSize="12sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox10"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:checked="false"
+                        android:text="재학 정보 제공 동의"
+                        android:textColor="@color/fontcolor"
+                        android:textSize="12sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox12"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:checked="false"
+                        android:paddingStart="5dp"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:text="개인 정보 수집 이용 및 필수"
+                        android:textColor="@color/fontcolor"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/loginInformation4"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:paddingStart="24dp"
+                    android:paddingTop="40dp"
+                    android:textColor="@color/fontcolor"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tw2"
+                            android:layout_width="60dp"
+                            android:layout_height="52dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/button_deepgray"
+                            android:gravity="center_horizontal"
+                            android:paddingTop="13dp"
+                            android:text="동의 안함"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/joinBtn"
+                            android:layout_width="60dp"
+                            android:layout_height="52dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/button_password"
+                            android:gravity="center_horizontal"
+                            android:paddingTop="13dp"
+                            android:text="회원가입 완료"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/loginInformation5"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:paddingStart="24dp"
+                    android:paddingTop="40dp"
+                    android:textColor="@color/fontcolor"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

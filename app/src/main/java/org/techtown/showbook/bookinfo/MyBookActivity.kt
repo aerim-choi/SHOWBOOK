@@ -12,9 +12,7 @@ import org.techtown.showbook.bookinfo.adapter.BookAdapter
 import org.techtown.showbook.bookinfo.api.BookService
 import org.techtown.showbook.bookinfo.model.Book
 import org.techtown.showbook.bookinfo.model.SearchBookDto
-import org.techtown.showbook.databinding.ActivityBookinfoReviewBinding
 import org.techtown.showbook.databinding.ActivityMybookBinding
-import org.techtown.showbook.lectureinfo.LectureFragment
 import org.techtown.showbook.lectureinfo.LectureFragment.Companion.lectures
 import org.techtown.showbook.lectureinfo.model.Lecture
 import retrofit2.Call

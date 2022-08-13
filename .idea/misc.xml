@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/drawable/button_deepgray.xml" value="0.1" />
+        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/drawable/button_password.xml" value="0.1" />
+        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/drawable/button_round_lightgray.xml" value="0.1" />
+        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/activity_login2.xml" value="0.3078125" />
+        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/activity_signup2.xml" value="0.3078125" />
+        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/fragment_mypage.xml" value="0.3078125" />
+        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/fragment_mypage2.xml" value="0.3078125" />
         <entry key="app/src/main/res/drawable/button_round_ssgray20.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/button_round_ssgray2_20.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/button_round_sspurple20.xml" value="0.1" />
