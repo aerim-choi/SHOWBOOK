@@ -26,6 +26,8 @@ class ChatListAdapter(val onItemClicked: (ChatListItem)->Unit) : ListAdapter<Cha
 
             }
             binding.chatRoomTitleTextView.text=chatListItem.itemTitle //물건 이름
+            binding.sellerIdTextView.text=chatListItem.sellerID //판매자
+
         }
     }
 
@@ -40,11 +42,11 @@ class ChatListAdapter(val onItemClicked: (ChatListItem)->Unit) : ListAdapter<Cha
     companion object{
         val diffUtil = object :DiffUtil.ItemCallback<ChatListItem>(){
             override fun areItemsTheSame(oldItem: ChatListItem, newItem: ChatListItem): Boolean {
-                return oldItem.key == newItem.key
+                return oldItem.sellerID == newItem.sellerID
             }
 
             override fun areContentsTheSame(oldItem: ChatListItem, newItem: ChatListItem): Boolean {
-                return oldItem == newItem
+                return oldItem.sellerID == newItem.sellerID
             }
 
         }

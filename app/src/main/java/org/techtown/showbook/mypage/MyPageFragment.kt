@@ -22,16 +22,6 @@ class MyPageFragment: Fragment(R.layout.fragment_mypage) {
         }
 
 
-//        binding!!.myLectureBtn.setOnClickListener {
-//            val mainActivity = activity as MainActivity
-//            mainActivity.replaceFragment(LectureFragment())
-//        }
-//        binding!!.myBookList.setOnClickListener{
-//            val intent = Intent(activity,MyBookActivity::class.java)
-//            startActivity(intent)
-//        }
-
-
 
     }
 }

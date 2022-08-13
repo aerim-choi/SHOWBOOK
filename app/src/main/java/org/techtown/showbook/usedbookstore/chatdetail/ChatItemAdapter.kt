@@ -15,7 +15,7 @@ class ChatItemAdapter: ListAdapter<ChatItem, ChatItemAdapter.ViewHolder>(
 
     inner class ViewHolder(private val binding : ItemChatBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(chatItem: ChatItem){
-            binding.senderTextView.text = chatItem.senderId
+            binding.senderIdTextView.text = chatItem.senderId
             binding.messageTextView.text = chatItem.message
         }
     }

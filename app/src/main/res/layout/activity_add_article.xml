@@ -72,6 +72,30 @@
                 android:paddingStart="20dp" />
 
             <EditText
+                android:id="@+id/UsedBookATitleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_round_ssgray2_20"
+                android:hint="중고책 이름"
+                android:includeFontPadding="true"
+                android:paddingStart="20dp" />
+
+            <EditText
+                android:id="@+id/lectureTitleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_round_ssgray2_20"
+                android:hint="강의명"
+                android:includeFontPadding="true"
+                android:paddingStart="20dp" />
+
+            <EditText
                 android:id="@+id/priceEditText"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
@@ -131,7 +155,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/bookCondition"
+                    android:id="@+id/bookConditionTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -142,18 +166,33 @@
                     android:textColor="@color/fontcolor"
                     android:textStyle="bold" />
 
-                <RatingBar
-                    android:id="@+id/bookcontionRatingBar"
-                    style="?android:attr/ratingBarStyleIndicator"
+                <RadioGroup
+                    android:id="@+id/bookCondition"
                     android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="10dp"
-                    android:isIndicator="false"
-                    android:numStars="3"
-                    android:rating="0"
-                    android:scaleX=".8"
-                    android:scaleY=".8"
-                    android:stepSize="1.0" />
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/con1radioButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="상" />
+
+                    <RadioButton
+                        android:id="@+id/con2radioButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="중" />
+
+                    <RadioButton
+                        android:id="@+id/con3radioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="하" />
+                </RadioGroup>
+
             </LinearLayout>
 
             <LinearLayout
@@ -162,7 +201,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/bookBuyDay"
+                    android:id="@+id/bookBuyDayTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -172,17 +211,33 @@
                     android:textColor="@color/fontcolor"
                     android:textStyle="bold" />
 
-                <RatingBar
-                    android:id="@+id/bookBuyDayRatingBar"
-                    style="?android:attr/ratingBarStyleIndicator"
+                <RadioGroup
+                    android:id="@+id/bookBuyDay"
                     android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:isIndicator="false"
-                    android:numStars="3"
-                    android:rating="0"
-                    android:scaleX=".8"
-                    android:scaleY=".8"
-                    android:stepSize="1.0" />
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/buy1radioButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1년" />
+
+                    <RadioButton
+                        android:id="@+id/buy2radioButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="3년" />
+
+                    <RadioButton
+                        android:id="@+id/buy3radioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="5년" />
+                </RadioGroup>
+
             </LinearLayout>
 
             <CheckBox

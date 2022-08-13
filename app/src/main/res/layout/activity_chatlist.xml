@@ -23,12 +23,14 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <ImageView
+        <TextView
             android:id="@+id/searchBtn"
             android:layout_width="0dp"
             android:layout_height="28dp"
             android:layout_weight="0.3"
-            app:srcCompat="@drawable/searchinlist" />
+            android:textStyle="bold"
+            android:textColor="@color/sspurple"
+            android:text="닫기" />
     </LinearLayout>
     <View
         android:background="@color/gray_cc"

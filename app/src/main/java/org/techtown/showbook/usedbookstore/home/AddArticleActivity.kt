@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -21,7 +22,6 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
 import org.techtown.showbook.R
 import org.techtown.showbook.usedbookstore.DBKey.Companion.DB_ARTICLES
-import java.util.concurrent.locks.Condition
 
 class AddArticleActivity:AppCompatActivity() {
     private var selectedUri: Uri? = null
@@ -34,7 +34,8 @@ class AddArticleActivity:AppCompatActivity() {
     private val articleDB:DatabaseReference by lazy{
         Firebase.database.reference.child(DB_ARTICLES)
     }
-
+    private lateinit var bookCondition: String
+    private lateinit var buyDay:String
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +43,25 @@ class AddArticleActivity:AppCompatActivity() {
         findViewById<Button>(R.id.backBtn).setOnClickListener {
             finish()
         }
+
+         findViewById<RadioGroup>(R.id.bookCondition).setOnCheckedChangeListener { group, checkedId ->
+            when(checkedId){
+                R.id.con1radioButton-> bookCondition="상"
+                R.id.con2radioButton-> bookCondition= "중"
+                R.id.con3radioButton-> bookCondition= "하"
+            }
+
+        }
+
+        findViewById<RadioGroup>(R.id.bookBuyDay).setOnCheckedChangeListener { group, checkedId ->
+            when(checkedId){
+                R.id.buy1radioButton-> buyDay = "1년"
+                R.id.buy2radioButton-> buyDay = "3년"
+                R.id.buy3radioButton-> buyDay = "5년"
+            }
+
+        }
+
         findViewById<Button>(R.id.imageAddButton).setOnClickListener {
             when {
                 ContextCompat.checkSelfPermission(
@@ -65,11 +85,14 @@ class AddArticleActivity:AppCompatActivity() {
             findViewById<Button>(R.id.submitButton).setOnClickListener {
                 val title = findViewById<EditText>(R.id.titleEditText).text.toString()
                 val price = findViewById<EditText>(R.id.priceEditText).text.toString()
+                val bookTitle = findViewById<EditText>(R.id.UsedBookATitleEditText).text.toString()
+                val lectureTitle = findViewById<EditText>(R.id.lectureTitleEditText).text.toString()
                 val sellerId = auth.currentUser?.uid.orEmpty()
                 val sellDescription =
                     findViewById<EditText>(R.id.detailEditTextView).text.toString()
-                val bookCondition = findViewById<RatingBar>(R.id.bookcontionRatingBar).rating.toString()
-                val buyDay = findViewById<RatingBar>(R.id.bookBuyDayRatingBar).rating.toString()
+
+
+
                 val writeCondition =
                     findViewById<CheckBox>(R.id.bookWriteCon).isChecked.toString()
 
@@ -84,10 +107,12 @@ class AddArticleActivity:AppCompatActivity() {
                             uploadArticle(
                                 sellerId,
                                 title,
+                                bookTitle,
+                                lectureTitle,
                                 price,
                                 uri,
                                 sellDescription,
-                                getBookCon(bookCondition) ,
+                                bookCondition,
                                 buyDay,
                                 getWriteCon(writeCondition)
                             )
@@ -102,10 +127,12 @@ class AddArticleActivity:AppCompatActivity() {
                     uploadArticle(
                         sellerId,
                         title,
+                        bookTitle,
+                        lectureTitle,
                         price,
                         "",
                         sellDescription,
-                        getBookCon(bookCondition),
+                        bookCondition,
                         buyDay,
                         getWriteCon(writeCondition)
                     )
@@ -116,13 +143,7 @@ class AddArticleActivity:AppCompatActivity() {
         }
     }
 
-        private fun getBookCon(bookCondition: String): String {
-            return when(bookCondition){
-                "1.0"->"하"
-                "2.0"->"증"
-                else -> "상"
-            }
-        }
+
         private fun getWriteCon(writeCondition:String):String{
             return when(writeCondition){
                 "true"->"Y"
@@ -154,16 +175,20 @@ class AddArticleActivity:AppCompatActivity() {
         private fun uploadArticle(
             sellerId: String,
             title: String,
+            bookTitle:String,
+            lectureTitle:String,
             price: String,
             imageUrl: String,
             sellDescription: String,
             bookCondition: String,
             buyDay: String,
-            bookWrite: String
+            bookWrite: String,
         ) {
             val model = ArticleModel(
                 sellerId,
                 title,
+                bookTitle,
+                lectureTitle,
                 System.currentTimeMillis(),
                 "$price 원",
                 imageUrl,

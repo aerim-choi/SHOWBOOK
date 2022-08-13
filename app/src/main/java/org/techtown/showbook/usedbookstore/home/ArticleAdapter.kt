@@ -1,16 +1,24 @@
 package org.techtown.showbook.usedbookstore.home
 
 
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
 import org.techtown.showbook.databinding.ItemArticleBinding
+import org.techtown.showbook.lectureinfo.model.Lecture
+import org.techtown.showbook.usedbookstore.chatdetail.ChatRoomActivity
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.coroutines.coroutineContext
 
 class ArticleAdapter(val onItemClicked: (ArticleModel)->Unit) : ListAdapter<ArticleModel, ArticleAdapter.ViewHolder>(
     diffUtil
@@ -32,11 +40,14 @@ class ArticleAdapter(val onItemClicked: (ArticleModel)->Unit) : ListAdapter<Arti
                 Glide.with(binding.thumbnailImageView)
                     .load(articleModel.imageUrl)
                     .into(binding.thumbnailImageView)
+
             }
             binding.root.setOnClickListener{
                 onItemClicked(articleModel)
-
             }
+
+
+
 
         }
     }
@@ -47,6 +58,23 @@ class ArticleAdapter(val onItemClicked: (ArticleModel)->Unit) : ListAdapter<Arti
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(currentList[position])
+
+        holder.itemView.setOnClickListener { v->
+
+            var intent = Intent(holder.itemView?.context, UsedBookDetail::class.java)
+            intent.putExtra("sellerId",currentList[position].sellerId)
+            intent.putExtra("title",currentList[position].title)
+            intent.putExtra("중고책 가격",currentList[position].price)
+            intent.putExtra("책상태",currentList[position].bookCondition)
+            intent.putExtra("구매시기",currentList[position].buyDay)
+            intent.putExtra("필기여부",currentList[position].writeCondition)
+            intent.putExtra("중고책사진",currentList[position].imageUrl)
+            intent.putExtra("중고책 상세글",currentList[position].sellDescription)
+            intent.putExtra("책이름",currentList[position].bookName)
+            intent.putExtra("강의 이름",currentList[position].lectureName)
+
+            v.context.startActivity(intent)
+        }
     }
 
     companion object{
