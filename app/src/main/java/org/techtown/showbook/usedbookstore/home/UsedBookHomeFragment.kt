@@ -19,6 +19,7 @@ import org.techtown.showbook.databinding.FragmentUsedbookstorehomeBinding
 import org.techtown.showbook.usedbookstore.DBKey.Companion.CHILD_CHAT
 import org.techtown.showbook.usedbookstore.DBKey.Companion.DB_ARTICLES
 import org.techtown.showbook.usedbookstore.DBKey.Companion.DB_USERS
+import org.techtown.showbook.usedbookstore.chatlist.ChatListItem
 
 class UsedBookHomeFragment: Fragment(R.layout.fragment_usedbookstorehome) {
 
@@ -60,34 +61,34 @@ class UsedBookHomeFragment: Fragment(R.layout.fragment_usedbookstorehome) {
         articleDB = Firebase.database.reference.child(DB_ARTICLES)
 
         articleAdapter = ArticleAdapter(onItemClicked = { articleModel->
-//            if(auth.currentUser!=null) {
-//                //로그인을 한 상태
-//                if (auth.currentUser?.uid != articleModel.sellerId) {
-//                    //채팅 방 만들기
-////                    val chatRoom =ChatListItem(
-////                        buyerId = auth.currentUser!!.uid,
-////                        sellerId = articleModel.sellerId,
-////                        itemTitle = articleModel.title,
-////                        key = System.currentTimeMillis()
-////                    )
-//                    userDB.child(auth.currentUser!!.uid)
-//                        .child(CHILD_CHAT)
-//                        .push()
-//                        .setValue(chatRoom)
-//
-//                    userDB.child(articleModel.sellerId)
-//                        .child(CHILD_CHAT)
-//                        .push()
-//                        .setValue(chatRoom)
-//                    Snackbar.make(view, "채팅방이 생성되었습니다. 채팅탭에서 확인해주세요.", Snackbar.LENGTH_LONG).show()
-//                }else{
-//                    //내가 올린 아이템
-//                    Snackbar.make(view,"내가 올린 아이템 입니다.",Snackbar.LENGTH_LONG).show()
-//                }
-//            }
-//            else{//로그인을 안한 상태
-//                Snackbar.make(view,"로그인 후 사용해 주세요.",Snackbar.LENGTH_LONG).show()
-//            }
+            if(auth.currentUser!=null) {
+                //로그인을 한 상태
+                if (auth.currentUser?.uid != articleModel.sellerId) {
+                    //채팅 방 만들기
+                    val chatRoom = ChatListItem(
+                        buyerId = auth.currentUser!!.uid,
+                        sellerID = articleModel.sellerId,
+                        itemTitle = articleModel.title,
+                        key = System.currentTimeMillis()
+                    )
+                    userDB.child(auth.currentUser!!.uid)
+                        .child(CHILD_CHAT)
+                        .push()
+                        .setValue(chatRoom)
+
+                    userDB.child(articleModel.sellerId)
+                        .child(CHILD_CHAT)
+                        .push()
+                        .setValue(chatRoom)
+                    Snackbar.make(view, "채팅방이 생성되었습니다. 채팅탭에서 확인해주세요.", Snackbar.LENGTH_LONG).show()
+                }else{
+                    //내가 올린 아이템
+                    Snackbar.make(view,"내가 올린 아이템 입니다.",Snackbar.LENGTH_LONG).show()
+                }
+            }
+            else{//로그인을 안한 상태
+                Snackbar.make(view,"로그인 후 사용해 주세요.",Snackbar.LENGTH_LONG).show()
+            }
 
 
         })

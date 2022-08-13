@@ -35,6 +35,7 @@ class ArticleAdapter(val onItemClicked: (ArticleModel)->Unit) : ListAdapter<Arti
             }
             binding.root.setOnClickListener{
                 onItemClicked(articleModel)
+
             }
 
         }
