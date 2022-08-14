@@ -2,21 +2,36 @@ package org.techtown.showbook.bookinfo
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import org.techtown.showbook.auth.IntroActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import org.techtown.showbook.bookinfo.adapter.BookCommentAdapter
 
 
 import org.techtown.showbook.bookinfo.model.Book
 import org.techtown.showbook.bookinfo.model.BookComment
 import org.techtown.showbook.databinding.ActivityBookinfoReviewBinding
+import org.techtown.showbook.usedbookstore.DBKey
+import org.techtown.showbook.usedbookstore.chatdetail.ChatItem
+import org.techtown.showbook.usedbookstore.chatlist.ChatListItem
+import java.text.DecimalFormat
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.HashMap
 
 class BookReviewActivity :AppCompatActivity(){
     private lateinit var binding:ActivityBookinfoReviewBinding
     private lateinit var adapter:BookCommentAdapter
-
+    private lateinit var databaseRef: DatabaseReference
+    private val auth : FirebaseAuth by lazy {
+        Firebase.auth
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -24,6 +39,7 @@ class BookReviewActivity :AppCompatActivity(){
         setContentView(binding.root)
 
         val model = intent.getParcelableExtra<Book>("bookModel")
+
 
         binding.titleTextView.text = model?.title.orEmpty()
         binding.authorTextView.text = model?.author
@@ -42,18 +58,42 @@ class BookReviewActivity :AppCompatActivity(){
 
         binding.evaluationBtn.setOnClickListener {
             val intent = Intent(this, BookReviewActivity2::class.java)
+            intent.putExtra("title",model?.title.toString())
             startActivity(intent)
         }
+
+
+        val commentDB = Firebase.database.reference.child("comment").child(model!!.title)
+
+        commentDB.addListenerForSingleValueEvent(object:ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                snapshot.children.forEach{
+                    val model = it.getValue(BookComment::class.java)
+                    model ?:return
+
+                    var bookComment:MutableList<BookComment> = mutableListOf(model)
+                    adapter.submitList(bookComment)
+
+                }
+                adapter.notifyDataSetChanged()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+
+
 
 
 
     }
 
-
     fun initView(){
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        layoutManager.setReverseLayout(true)
-        layoutManager.setStackFromEnd(true)
+        layoutManager.reverseLayout = true
+        layoutManager.stackFromEnd = true
         binding.bookReviewRecyclerView.layoutManager = layoutManager
 
         adapter= BookCommentAdapter(itemClickedListener = {
@@ -63,18 +103,12 @@ class BookReviewActivity :AppCompatActivity(){
 
 
         binding.bookReviewRecyclerView.adapter = adapter
-        var bookComments:MutableList<BookComment> = mutableListOf(
-            BookComment("0", "sky2****", "1분전", "5.0", "정말 스릴넘치는 영화였어요. 한 번 더 보고 싶은 영화!!!",
-                "사용됨", "도움됨"),
-            BookComment(
-                "1", "john****", "3분전", "4.0", "재미있어요.",
-                "사용됨", "도움됨"))
 
-
-        adapter.submitList(bookComments)
 
 
     }
+
+
 
 
 

@@ -4,8 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import org.techtown.showbook.MainActivity
 import org.techtown.showbook.R
+import org.techtown.showbook.bookinfo.MyBookActivity
 import org.techtown.showbook.databinding.FragmentMypageBinding
+import org.techtown.showbook.lectureinfo.LectureFragment
 
 class MyPageFragment: Fragment(R.layout.fragment_mypage) {
     private var binding: FragmentMypageBinding? = null
@@ -15,13 +18,14 @@ class MyPageFragment: Fragment(R.layout.fragment_mypage) {
         val fragmentMyPageBinding = FragmentMypageBinding.bind(view)
         binding = fragmentMyPageBinding
 
-
-        binding!!.loginBtn1.setOnClickListener {
-            val intent = Intent(activity, Login2Activity::class.java)
+        binding!!.myLectureBtn.setOnClickListener {
+            val mainActivity = activity as MainActivity
+            mainActivity.replaceFragment(LectureFragment())
+        }
+        binding!!.myBookList.setOnClickListener{
+            val intent = Intent(activity, MyBookActivity::class.java)
             startActivity(intent)
         }
-
-
 
     }
 }
