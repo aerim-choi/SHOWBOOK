@@ -3,39 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/drawable/button_deepgray.xml" value="0.1" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/drawable/button_password.xml" value="0.1" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/drawable/button_round_lightgray.xml" value="0.1" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/drawable/selector_menu_color.xml" value="0.1945" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/activity_add_article.xml" value="0.29739583333333336" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/activity_bookinfo_review.xml" value="0.3104166666666667" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/activity_chatlist.xml" value="0.33" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/activity_chatroom.xml" value="0.22" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/activity_login1.xml" value="0.26766304347826086" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/activity_login2.xml" value="0.3078125" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/activity_main.xml" value="0.26766304347826086" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/activity_mybook.xml" value="0.26766304347826086" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/activity_signup2.xml" value="0.3078125" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/activity_usedbookdetail.xml" value="0.33" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/fragment_bookinfo_main.xml" value="0.10462962962962963" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/fragment_chatlist.xml" value="0.25" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/fragment_home.xml" value="0.26766304347826086" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/fragment_lecture_info_main.xml" value="0.26766304347826086" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/fragment_mypage.xml" value="0.3078125" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/fragment_mypage2.xml" value="0.3078125" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/item_chat.xml" value="0.26766304347826086" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/item_chat_list.xml" value="0.25" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/item_history.xml" value="0.26766304347826086" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/layout/item_lecture.xml" value="0.26766304347826086" />
-        <entry key="..\:/Users/win/Documents/ShowBook/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.3104166666666667" />
+        <entry key="app/src/main/res/drawable-v24/button_deepgray.xml" value="0.191" />
+        <entry key="app/src/main/res/drawable-v24/button_password.xml" value="0.191" />
+        <entry key="app/src/main/res/drawable-v24/button_round_lightgray.xml" value="0.191" />
+        <entry key="app/src/main/res/drawable/button_deepgray.xml" value="0.199" />
         <entry key="app/src/main/res/drawable/button_round_ssgray20.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/button_round_ssgray2_20.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/button_round_sspurple20.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_add_article.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_all_splash.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_bookinfo_review.xml" value="0.3039760581445062" />
+        <entry key="app/src/main/res/layout/activity_bookinfo_review2.xml" value="0.15604959384352288" />
+        <entry key="app/src/main/res/layout/activity_chatlist.xml" value="0.1569046601111586" />
         <entry key="app/src/main/res/layout/activity_chatroom.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_intro.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_join.xml" value="0.1569046601111586" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.15604959384352288" />
         <entry key="app/src/main/res/layout/activity_login1.xml" value="0.15604959384352288" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1569046601111586" />
         <entry key="app/src/main/res/layout/activity_mybook.xml" value="0.15604959384352288" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_usedbookdetail.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_bookinfo_main.xml" value="0.15818725951261223" />
         <entry key="app/src/main/res/layout/fragment_chatlist.xml" value="0.15519452757588714" />
@@ -43,9 +30,15 @@
         <entry key="app/src/main/res/layout/fragment_lecture_info_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_mapage.xml" value="0.19752030782385635" />
         <entry key="app/src/main/res/layout/fragment_mypage.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_mypage2.xml" value="0.1569046601111586" />
+        <entry key="app/src/main/res/layout/fragment_splash1.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_splash2.xml" value="0.1569046601111586" />
+        <entry key="app/src/main/res/layout/fragment_splash3.xml" value="0.1569046601111586" />
+        <entry key="app/src/main/res/layout/fragment_splash4.xml" value="0.1569046601111586" />
         <entry key="app/src/main/res/layout/fragment_usedbookstorehome.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_article.xml" value="0.1569046601111586" />
-        <entry key="app/src/main/res/layout/item_book.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_book.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_bookcomment.xml" value="0.30312099187687047" />
         <entry key="app/src/main/res/layout/item_chat.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_chat_list.xml" value="0.165" />
         <entry key="app/src/main/res/layout/item_history.xml" value="0.1" />

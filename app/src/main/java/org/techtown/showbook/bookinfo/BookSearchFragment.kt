@@ -114,9 +114,11 @@ class BookSearchFragment : Fragment(R.layout.fragment_bookinfo_main) {
 
         })
 
-
         binding!!.bookRecyclerView.layoutManager = LinearLayoutManager(context)
         binding!!.bookRecyclerView.adapter = adapter
+
+        
+
     }
 
     private fun showHistoryView() {

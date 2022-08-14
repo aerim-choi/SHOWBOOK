@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/button_round_sswhite20"
+        android:orientation="vertical"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:text="닉네임 : "
+            android:textColor="@color/fontcolor"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/bookUseTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:text="강의에서 책 사용 여부 : "
+            android:textColor="@color/fontcolor"
+            android:textSize="14sp" />
+
+
+        <TextView
+            android:id="@+id/bookHelpTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:text="강의에서 책 도움 여부 : "
+            android:textColor="@color/fontcolor"
+            android:textSize="14sp" />
+
+
+        <TextView
+            android:id="@+id/bookStageTextView"
+            android:layout_width="91dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:text="책 난이도"
+            android:textColor="@color/fontcolor"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/bookReviewCommentTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:hint="한줄평 내용"
+            android:inputType="textPersonName"
+            android:padding="20dp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

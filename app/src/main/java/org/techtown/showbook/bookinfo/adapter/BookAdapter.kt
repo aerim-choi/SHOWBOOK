@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import org.techtown.showbook.MainActivity
 import org.techtown.showbook.databinding.ItemBookBinding
 import org.techtown.showbook.bookinfo.model.Book
+import org.techtown.showbook.mypage.MyPageFragment
 
 class BookAdapter(private val itemClickedListener:(Book) -> Unit):ListAdapter<Book, BookAdapter.BookItemViewHolder>(
     diffUtil
@@ -27,7 +29,9 @@ class BookAdapter(private val itemClickedListener:(Book) -> Unit):ListAdapter<Bo
             Glide.with(binding.coverImageView.context)
                 .load(bookModel.coverSmallUrl)
                 .into(binding.coverImageView)
+
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookItemViewHolder {

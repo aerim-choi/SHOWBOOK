@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/toolbarLayout"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout3"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="133dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:text="책 한줄평 작성하기"
+            android:textColor="@color/fontcolor"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/closeBtn"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_weight="0.3"
+            app:srcCompat="@drawable/ic_baseline_clear_24" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_round_sswhite20"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbarLayout"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+
+
+        <RadioGroup
+            android:id="@+id/usebook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/bookUseTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="강의에서 책 사용 여부"
+                android:textColor="@color/fontcolor"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/usebookBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=" 책 사용함" />
+
+            <RadioButton
+                android:id="@+id/unusebookBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="책 사용안함" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/helpbook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/bookHelpTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="강의에서 책 도움 여부"
+                android:textColor="@color/fontcolor"
+                android:textSize="14sp" />
+
+            <RadioButton
+
+                android:id="@+id/bookhelpBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="책 도움됨" />
+
+            <RadioButton
+                android:id="@+id/bookunhelpBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="책 도움안됨" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/bookStageTextView"
+                android:layout_width="91dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="책 난이도"
+                android:textColor="@color/fontcolor"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/upstage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="상" />
+
+            <RadioButton
+                android:id="@+id/midstage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="중" />
+
+            <RadioButton
+                android:id="@+id/downstage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="하" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/bookReviewEditText"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:ems="10"
+            android:hint="한줄평을 남겨주세요"
+            android:inputType="textPersonName" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/reviewSaveBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_round_sspurple20"
+            android:text="작성"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

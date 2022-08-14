@@ -24,7 +24,7 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/searchBtn"
+            android:id="@+id/closeBtn"
             android:layout_width="0dp"
             android:layout_height="28dp"
             android:layout_weight="0.3"
