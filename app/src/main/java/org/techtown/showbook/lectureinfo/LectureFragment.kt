@@ -21,8 +21,7 @@ class LectureFragment : Fragment(R.layout.fragment_lecture_info_main) {
             Lecture("고급자료구조","홍의석","C++로 쉽게 풀어쓴 자료구조"),
             Lecture("고급자바프로그래밍(002)","이윤경","쉽게 배우는 자바 프로그래밍 = Java Programming"),
             Lecture("데이터베이스","박지웅","(MySQL로 배우는)데이터베이스 개론과 실습",),
-            Lecture("미적분과 벡터해석 기초","연미정","미적분과 벡터해석 기초 with Python"),
-            Lecture("인공지능","이재원","인공지능:개념 및 응용")
+            Lecture("미적분과 벡터해석 기초","연미정","미적분과 벡터해석 기초 with Python")
         )
 
     }

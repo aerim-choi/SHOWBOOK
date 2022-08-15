@@ -13,7 +13,7 @@ public interface BookService {
         @Query("query") keyword:String
     ):Call<SearchBookDto>
 
-    @GET("/api/bestSeller.api?output=json&categoryId=100")
+    @GET("/api/bestSeller.api?output=json&categoryId=125")
     fun getBestSellerBooks(
         @Query("key") apiKey:String
     ): Call<BestSellerDto>

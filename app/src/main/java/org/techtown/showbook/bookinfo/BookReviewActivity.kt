@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
@@ -49,6 +50,7 @@ class BookReviewActivity :AppCompatActivity(){
         Glide.with(binding.coverImageView.context)
             .load(model?.coverSmallUrl.orEmpty())
             .into(binding.coverImageView)
+        binding.detailTextView.text = model?.description
 
         binding.closeBtn.setOnClickListener {
             finish()
@@ -66,16 +68,17 @@ class BookReviewActivity :AppCompatActivity(){
         val commentDB = Firebase.database.reference.child("comment").child(model!!.title)
 
         commentDB.addListenerForSingleValueEvent(object:ValueEventListener{
+            var bookComment:MutableList<BookComment> =  mutableListOf()
             override fun onDataChange(snapshot: DataSnapshot) {
                 snapshot.children.forEach{
                     val model = it.getValue(BookComment::class.java)
                     model ?:return
-
-                    var bookComment:MutableList<BookComment> = mutableListOf(model)
+                    bookComment.add(model)
                     adapter.submitList(bookComment)
-
                 }
+                binding.commentTextView.isVisible = bookComment.isEmpty()
                 adapter.notifyDataSetChanged()
+
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -89,6 +92,8 @@ class BookReviewActivity :AppCompatActivity(){
 
 
     }
+
+
 
     fun initView(){
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
@@ -110,7 +115,15 @@ class BookReviewActivity :AppCompatActivity(){
 
 
 
+    override fun onResume() {
+        super.onResume()
+        adapter.notifyDataSetChanged() //뷰 갱신
+    }
 
+    override fun onRestart() {
+        super.onRestart()
+        adapter.notifyDataSetChanged() //뷰 갱신
+    }
 
 
 }

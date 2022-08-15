@@ -1,6 +1,10 @@
 package org.techtown.showbook.bookinfo
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.ProgressBar
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +17,7 @@ import com.google.firebase.ktx.Firebase
 import org.techtown.showbook.R
 import org.techtown.showbook.bookinfo.model.BookComment
 import org.techtown.showbook.databinding.ActivityBookinfoReview2Binding
+import org.techtown.showbook.lectureinfo.adpater.LectureAdapter
 import java.sql.Timestamp
 import java.util.concurrent.TimeUnit
 
@@ -22,11 +27,13 @@ class BookReviewActivity2 :AppCompatActivity() {
     private val auth : FirebaseAuth by lazy {
         Firebase.auth
     }
+    private lateinit var date:String
     private lateinit var usecommets:String
     private lateinit var helpcomments:String
     private lateinit var ratingcomments:String
     private lateinit var databaseRef:DatabaseReference
     private lateinit var title:String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -56,25 +63,49 @@ class BookReviewActivity2 :AppCompatActivity() {
             }
         }
 
-
+        binding.spinner.onItemSelectedListener= object: AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                when (binding.spinner.getItemAtPosition(position)) {
+                    "2022년 1학기" -> {
+                        date = "2022년 1학기"
+                    }
+                    "2021년 2학기" -> {
+                        date = "2021년 2학기"
+                    }
+                    "2021년 1학기"-> {
+                        date = "2021년 1학기"
+                    }
+                }
+            }
+        }
         binding.reviewSaveBtn.setOnClickListener {
             var comments:String = binding.bookReviewEditText.text.toString()
-            saveComment(usecommets,helpcomments,ratingcomments,comments)
+            saveComment(date,usecommets,helpcomments,ratingcomments,comments)
             showProgress()
             finish()
+
         }
         binding.closeBtn.setOnClickListener {
             finish()
         }
+
+
+
+
+
+
+
         databaseRef=FirebaseDatabase.getInstance().reference
 
 
     }
-    fun saveComment(use:String, help:String,rating:String,comments:String){
+    fun saveComment(date:String, use:String, help:String,rating:String,comments:String){
 
         val key:String?=databaseRef.child("comments").push().key
 
-        val comment=BookComment(key!!, auth.currentUser?.uid.orEmpty() ,"",rating,comments, use, help,0)
+        val comment=BookComment(key!!, auth.currentUser?.uid.orEmpty() ,date,rating,comments, use, help,0)
 
         val commentValues:HashMap<String,Any> = comment.toMap()
         commentValues["timestamp"]=ServerValue.TIMESTAMP

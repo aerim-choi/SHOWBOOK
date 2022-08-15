@@ -28,7 +28,7 @@
             android:layout_width="0dp"
             android:layout_height="28dp"
             android:layout_weight="0.3"
-            app:srcCompat="@drawable/searchinlist" />
+            app:srcCompat="@drawable/ic_baseline_clear_24" />
     </LinearLayout>
     <View
         android:background="@color/gray_cc"

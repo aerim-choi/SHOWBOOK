@@ -12,6 +12,6 @@ data class Book (
     @SerializedName("author") var author:String,
     @SerializedName("priceSales") var price:String,
     @SerializedName("publisher") var publisher:String,
-    @SerializedName("coverSmallUrl")var coverSmallUrl:String
-
+    @SerializedName("coverSmallUrl")var coverSmallUrl:String,
+    @SerializedName("coverLargeUrl")var coverLargeUrl:String
     ): Parcelable

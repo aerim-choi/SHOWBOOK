@@ -210,12 +210,6 @@
                             android:textColor="@color/fontcolor"
                             tools:text="가격" />
 
-                        <ImageView
-                            android:id="@+id/heart"
-                            android:layout_width="72dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/heart" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -224,21 +218,10 @@
                         android:orientation="horizontal">
 
                         <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/usedbookButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="28dp"
-                            android:layout_marginStart="5dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginEnd="5dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/button_round_ssgray20"
-                            android:text="중고장터"
-                            android:textColor="@color/white" />
-
-                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/evaluationBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="28dp"
+                            android:layout_margin="10dp"
                             android:layout_marginTop="15dp"
                             android:layout_weight="1"
                             android:background="@drawable/button_round_sspurple20"
@@ -261,9 +244,20 @@
                 tools:layout_editor_absoluteY="124dp" />
 
 
+            <TextView
+                android:id="@+id/detailTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:textColor="@color/fontcolor"
+                android:maxLines="6"
+                android:ellipsize="end"
+
+                android:text="책 상세정보" />
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@drawable/button_round_lightgray"
                 android:orientation="vertical">
 
@@ -276,17 +270,27 @@
                     android:padding="10dp"
                     android:text="한줄평 "
                     android:textColor="@color/sspurple"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/commentTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_margin="100dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="한줄평이 존재하지 않습니다"
+                    android:textColor="@color/fontcolor"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/bookReviewRecyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </LinearLayout><![CDATA[
-
-            />
-
-        ]]>
+                    android:layout_height="match_parent" />
+            </LinearLayout>
         </LinearLayout>
 
     </ScrollView>

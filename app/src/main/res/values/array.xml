@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string-array name="my_array">
+        <item>2022년 1학기</item>
+        <item>2021년 2학기</item>
+        <item>2021년 1학기</item>
+
+    </string-array>
+</resources>

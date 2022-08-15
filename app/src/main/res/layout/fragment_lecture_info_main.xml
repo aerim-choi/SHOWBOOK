@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="평가"
+            android:text="수업"
             android:textColor="@color/fontcolor"
             android:textSize="20sp"
             android:textStyle="bold" />

@@ -53,10 +53,13 @@ class MyBookActivity:AppCompatActivity (){
     }
 
     private fun initLectureBookRecyclerView() {
+
         adapter = BookAdapter(itemClickedListener = {
+            val intent= Intent(this,BookReviewActivity::class.java)
+            intent.putExtra("bookModel",it)
+            startActivity(intent)
 
         })
-
         binding!!.lectureBookRecyclerView.layoutManager = LinearLayoutManager(this)
         binding!!.lectureBookRecyclerView.adapter = adapter
 
@@ -88,7 +91,7 @@ class MyBookActivity:AppCompatActivity (){
                                 adapter.submitList(bookList)
                             }
                             else{
-                                book=Book(0,keyword,"","교보문고 검색 불가","0","","")
+                                book=Book(0,keyword,"","교보문고 검색 불가","0","","","")
                                 bookList.add(book)
                                 adapter.submitList(bookList)
                             }

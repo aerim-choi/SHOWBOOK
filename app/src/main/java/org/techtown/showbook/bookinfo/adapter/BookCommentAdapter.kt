@@ -19,7 +19,7 @@ class BookCommentAdapter(private val itemClickedListener:(BookComment) -> Unit):
 
     inner class BookCommentItemViewHolder(private val binding: ItemBookcommentBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(bookCommentModel: BookComment){
-            binding.name.text="닉네임 : ${bookCommentModel.author}"
+            binding.date.text="수강학기 : ${bookCommentModel.date}"
             binding.bookUseTextView.text="강의에서 책 사용 여부 : ${bookCommentModel.use}"
             binding.bookHelpTextView.text="강의에서 책 도움 여부 : ${bookCommentModel.help}"
             binding.bookReviewCommentTextView.text=bookCommentModel.contents
