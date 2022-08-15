@@ -1,6 +1,7 @@
 package org.techtown.showbook.bookinfo
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -57,13 +58,17 @@ class BookReviewActivity :AppCompatActivity(){
         }
 
         initView()
-
+        //한줄평 작성하기
         binding.evaluationBtn.setOnClickListener {
             val intent = Intent(this, BookReviewActivity2::class.java)
             intent.putExtra("title",model?.title.toString())
             startActivity(intent)
         }
-
+        //구매처로 이동
+        binding.websiteGoBtn.setOnClickListener {
+            val shopIntent =Intent(Intent.ACTION_VIEW, Uri.parse(model?.link))
+            startActivity(shopIntent)
+        }
 
         val commentDB = Firebase.database.reference.child("comment").child(model!!.title)
 

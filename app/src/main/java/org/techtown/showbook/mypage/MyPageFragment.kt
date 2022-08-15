@@ -9,6 +9,7 @@ import org.techtown.showbook.R
 import org.techtown.showbook.bookinfo.MyBookActivity
 import org.techtown.showbook.databinding.FragmentMypageBinding
 import org.techtown.showbook.lectureinfo.LectureFragment
+import org.techtown.showbook.usedbookstore.chatlist.ChatListActivity
 
 class MyPageFragment: Fragment(R.layout.fragment_mypage) {
     private var binding: FragmentMypageBinding? = null
@@ -18,12 +19,20 @@ class MyPageFragment: Fragment(R.layout.fragment_mypage) {
         val fragmentMyPageBinding = FragmentMypageBinding.bind(view)
         binding = fragmentMyPageBinding
 
+        val mainActivity = activity as MainActivity
+
         binding!!.myLectureBtn.setOnClickListener {
-            val mainActivity = activity as MainActivity
             mainActivity.replaceFragment(LectureFragment())
         }
+
+        binding!!.nameTextView.text=mainActivity.getId()
+
         binding!!.myBookList.setOnClickListener{
             val intent = Intent(activity, MyBookActivity::class.java)
+            startActivity(intent)
+        }
+        binding!!.myChatRoomTextView.setOnClickListener{
+            val intent = Intent(activity, ChatListActivity::class.java)
             startActivity(intent)
         }
 

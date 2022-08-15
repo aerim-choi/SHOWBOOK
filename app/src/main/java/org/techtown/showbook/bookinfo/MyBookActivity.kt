@@ -85,13 +85,11 @@ class MyBookActivity:AppCompatActivity (){
                         response.body()?.let {
 
                             if(it.books.isNotEmpty()){
-                                Log.d("안녕",it.books.toString())
-                                Log.d("하이",it.books[0].toString())
                                 bookList.add(it.books[0])
                                 adapter.submitList(bookList)
                             }
                             else{
-                                book=Book(0,keyword,"","교보문고 검색 불가","0","","","")
+                                book=Book(0,keyword,"","교보문고 검색 불가","0","","","","")
                                 bookList.add(book)
                                 adapter.submitList(bookList)
                             }

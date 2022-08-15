@@ -12,6 +12,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import org.techtown.showbook.MainActivity
 import org.techtown.showbook.databinding.ActivityBookinfoReviewBinding
 
 import org.techtown.showbook.databinding.ActivityUsedbookdetailBinding
@@ -47,7 +48,8 @@ class UsedBookDetail : AppCompatActivity() {
         binding.detailbookBuy.text= "구매시기 : ${intent.getStringExtra("구매시기") }이내"
         binding.detailbookWrite.text = "필기여부 : ${intent.getStringExtra("필기여부")}"
 
-        val sellerId = intent.getStringExtra("sellerId")
+        var emailtemp = auth.currentUser?.email?.split('@')
+        val sellerId = emailtemp?.get(0).toString()
         val title=intent.getStringExtra("title")
 
         binding.sellerId.text = sellerId

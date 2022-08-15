@@ -14,7 +14,7 @@
         <entry key="app/src/main/res/drawable/button_round_sspurple20.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_add_article.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_all_splash.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_bookinfo_review.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_bookinfo_review.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_bookinfo_review2.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_chatlist.xml" value="0.1569046601111586" />
         <entry key="app/src/main/res/layout/activity_chatroom.xml" value="0.165" />
@@ -25,6 +25,7 @@
         <entry key="app/src/main/res/layout/activity_login2.xml" value="0.23386062419837536" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1569046601111586" />
         <entry key="app/src/main/res/layout/activity_mybook.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_signup2.xml" value="0.22984244670991658" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_usedbookdetail.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_bookinfo_main.xml" value="0.15818725951261223" />
@@ -32,7 +33,7 @@
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_lecture_info_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_mapage.xml" value="0.19752030782385635" />
-        <entry key="app/src/main/res/layout/fragment_mypage.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_mypage.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_mypage2.xml" value="0.1569046601111586" />
         <entry key="app/src/main/res/layout/fragment_splash1.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_splash2.xml" value="0.1569046601111586" />
