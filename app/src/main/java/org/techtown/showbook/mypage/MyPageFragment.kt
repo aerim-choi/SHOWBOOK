@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import org.techtown.showbook.MainActivity
+import org.techtown.showbook.MyInfoActivity
 import org.techtown.showbook.R
 import org.techtown.showbook.bookinfo.MyBookActivity
 import org.techtown.showbook.databinding.FragmentMypageBinding
@@ -23,6 +24,11 @@ class MyPageFragment: Fragment(R.layout.fragment_mypage) {
 
         binding!!.myLectureBtn.setOnClickListener {
             mainActivity.replaceFragment(LectureFragment())
+        }
+
+        binding!!.myInfoTextView.setOnClickListener{
+            val intent = Intent(activity, MyInfoActivity::class.java)
+            startActivity(intent)
         }
 
         binding!!.nameTextView.text=mainActivity.getId()

@@ -24,17 +24,6 @@
             app:srcCompat="@drawable/profile" />
 
         <TextView
-            android:id="@+id/sellerIdTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_weight="1"
-            android:includeFontPadding="true"
-            android:padding="10dp"
-            android:text="sellerId"
-            android:textColor="@color/fontcolor" />
-
-        <TextView
             android:id="@+id/chatRoomTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -48,11 +48,10 @@ class UsedBookDetail : AppCompatActivity() {
         binding.detailbookBuy.text= "구매시기 : ${intent.getStringExtra("구매시기") }이내"
         binding.detailbookWrite.text = "필기여부 : ${intent.getStringExtra("필기여부")}"
 
-        var emailtemp = auth.currentUser?.email?.split('@')
-        val sellerId = emailtemp?.get(0).toString()
-        val title=intent.getStringExtra("title")
 
-        binding.sellerId.text = sellerId
+        val title=intent.getStringExtra("title")
+        val sellerId=intent.getStringExtra("sellerId").toString()
+        binding.sellerId.text = "dofla5518"
 
         val detailImageUrl = intent.getStringExtra("중고책사진")
         if (detailImageUrl != null) {

@@ -19,19 +19,17 @@ class ChatListAdapter(val onItemClicked: (ChatListItem)->Unit) : ListAdapter<Cha
 
     inner class ViewHolder(private val binding : ItemChatListBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(chatListItem: ChatListItem){
+            binding.chatRoomTitleTextView.text = "${chatListItem.itemTitle}게시물 채팅방 입니다."
 
-
-            binding.root.setOnClickListener{
+            binding.root.setOnClickListener {
                 onItemClicked(chatListItem)
-
             }
-            binding.chatRoomTitleTextView.text=chatListItem.itemTitle //물건 이름
-            binding.sellerIdTextView.text=chatListItem.sellerID //판매자
 
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+
         return ViewHolder(ItemChatListBinding.inflate(LayoutInflater.from(parent.context),parent,false))
     }
 

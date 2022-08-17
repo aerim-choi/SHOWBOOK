@@ -39,6 +39,7 @@
             android:hint="채팅 입력"
             android:includeFontPadding="true"
             android:padding="15dp"
+            android:inputType="textLongMessage"
             android:textColorHint="@color/fontcolor"
             android:textSize="14sp" />
 

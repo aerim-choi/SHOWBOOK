@@ -6,7 +6,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.techtown.showbook.databinding.ItemChatBinding
-
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class ChatItemAdapter: ListAdapter<ChatItem, ChatItemAdapter.ViewHolder>(
@@ -15,7 +16,7 @@ class ChatItemAdapter: ListAdapter<ChatItem, ChatItemAdapter.ViewHolder>(
 
     inner class ViewHolder(private val binding : ItemChatBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(chatItem: ChatItem){
-            binding.senderIdTextView.text = chatItem.senderId
+            binding.timeTextView.text = getTime()
             binding.messageTextView.text = chatItem.message
         }
     }
@@ -40,4 +41,13 @@ class ChatItemAdapter: ListAdapter<ChatItem, ChatItemAdapter.ViewHolder>(
 
         }
     }
+    private fun getTime() :String{
+        val now = System.currentTimeMillis();
+        val date:Date = Date(now);
+        val dateFormat= SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        val getTime:String = dateFormat.format(date);
+
+        return getTime;
+    }
+
 }

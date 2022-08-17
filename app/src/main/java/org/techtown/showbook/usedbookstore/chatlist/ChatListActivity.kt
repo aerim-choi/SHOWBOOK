@@ -43,6 +43,7 @@ class ChatListActivity: AppCompatActivity(){
         chatRoomList.clear()
         binding.chatListRecyclerView.adapter=chatListAdapter
         binding.chatListRecyclerView.layoutManager=LinearLayoutManager(this)
+
         //로그인이 안되어있을 경우
         if(auth.currentUser==null){
             Log.d("로그인 안됨","로그인해주세요")
