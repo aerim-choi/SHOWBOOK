@@ -46,7 +46,9 @@ class MyBookActivity:AppCompatActivity (){
             search(lecture.bookName.toString())
             Log.d("안녕",lecture.bookName.toString())
         }
-
+        binding.closeBtn.setOnClickListener {
+            finish()
+        }
         initLectureBookRecyclerView()
 
 

@@ -16,3 +16,4 @@ interface HistoryDao {
     @Query("DELETE FROM history WHERE keyword ==:keyword")
     fun delete(keyword:String)
 }
+

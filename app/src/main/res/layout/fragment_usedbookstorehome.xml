@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="중고 거래"
+            android:text="중고 장터"
             android:textColor="@color/fontcolor"
             android:textSize="20sp"
             android:textStyle="bold" />
