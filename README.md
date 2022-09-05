@@ -1,5 +1,5 @@
-# 2022 성신여대 소프트웨어 경진대회 은상 수상작 쇼북(SHOWBOOK)🏆
-## <쇼북(SHOWBOOK)> 성신여대 재학생들을 위한 강의 교재 리뷰&중고장터 앱📚
+# 2022 성신여대 소프트웨어 경진대회 은상 수상작 쇼북(SHOWBOOK)📚🏆
+## <쇼북(SHOWBOOK)> 성신여대 재학생들을 위한 강의 교재 리뷰&중고장터 앱
 
 ## Skills
 - Kotlin, Android Studio, Firebase
